@@ -1,5 +1,4 @@
-
-import '../../models/loginModel.dart';
+import 'package:petology/models/login_model.dart';
 
 abstract class RegisterStates{}
 
@@ -24,21 +23,6 @@ class RegisterErrorState extends RegisterStates
 class ChangePasswordVState extends RegisterStates {}
 class ChangePasswordV2State extends RegisterStates {}
 
-class SendOTPLoadingState extends RegisterStates {}
+class RegisterChangeScreenState extends RegisterStates{}
 
-class SendOTPSuccessState extends RegisterStates
-{
-  final LoginModel loginModel;
 
-  SendOTPSuccessState(this.loginModel);
-
-}
-
-class SendOTPErrorState extends RegisterStates
-{
-  final String error;
-
-  SendOTPErrorState(this.error);
-}
-
-class HomeViewModelChangeScreenState extends RegisterStates{}

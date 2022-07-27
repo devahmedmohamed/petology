@@ -25,7 +25,7 @@ Widget myDefaultButton({
 );
 
 Widget myDefaultButton2({
-  double? height,
+  double? hight,
   double? width,
   String? text,
   Function()? onPressed,
@@ -33,16 +33,15 @@ Widget myDefaultButton2({
   Color? textColor,
   String? image,
   bool? icon = false,
-}) =>
-    Container(
-        height: height,
+}) =>Container(
+        height: hight,
         width: width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(35),
             color: color,
             border: Border.all(color: Colors.grey)),
         child: MaterialButton(
-            onPressed:  onPressed,
+            onPressed: onPressed,
             child: Row(children: [
               if (icon == false)
                 Padding(

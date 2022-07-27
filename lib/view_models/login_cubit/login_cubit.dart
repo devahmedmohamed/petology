@@ -1,11 +1,12 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:petology/models/login_model.dart';
+import 'package:petology/shared/constants/constants.dart';
+import 'package:petology/shared/constants/end_point.dart';
+import 'package:petology/shared/network/remote/dio_helper.dart';
 
-import '../../models/loginModel.dart';
-import '../../shared/constants/constants.dart';
-import '../../shared/constants/end_point.dart';
-import '../../shared/network/remote/dio_helper.dart';
-import 'loginStates.dart';
+import 'login_states.dart';
 
 
 class LoginCubit extends Cubit<LoginStates> {
@@ -13,8 +14,16 @@ class LoginCubit extends Cubit<LoginStates> {
 
   static LoginCubit get(context) => BlocProvider.of(context);
 
-  LoginModel ?loginModel;
 
+  void changeScreen(int currentIndex)
+  {
+
+    index=currentIndex;
+
+    emit(LoginChangeScreenState());
+  }
+
+  LoginModel ?loginModel;
 
   void userLogin({
     required String email,
@@ -67,13 +76,5 @@ class LoginCubit extends Cubit<LoginStates> {
     cPassword= !cPassword;
     suffiix =cPassword? Icons.visibility_outlined:Icons.visibility_off_outlined;
     emit(ChangePasswordV2State());
-  }
-
-  void changeScreen(int currentIndex)
-  {
-
-    index=currentIndex;
-
-    emit(HomeViewModelChangeScreenState());
   }
 }

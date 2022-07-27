@@ -23,16 +23,16 @@ class ButtonCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(              width: 400,
-      height:height?? 50,
+      height:height,
       child: ElevatedButton(
         child: Text(
           title,
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: color2??secondaryColor , fontSize: 20),
+              fontWeight: FontWeight.bold, color: color2 , fontSize: 20),
         ),
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          primary:color?? primaryColor,
+          primary:color,
           onPrimary: secondaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32.0),

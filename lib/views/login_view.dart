@@ -4,10 +4,8 @@ import 'package:hexcolor/hexcolor.dart';
 import '../shared/component/component.dart';
 import '../shared/constants/constants.dart';
 import '../shared/network/local/cache_helper.dart';
-import '../view_models/login_cubit/loginCubit.dart';
-import '../view_models/login_cubit/loginStates.dart';
-import 'home_view.dart';
-
+import '../view_models/login_cubit/login_cubit.dart';
+import '../view_models/login_cubit/login_states.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -39,8 +37,7 @@ class _LoginViewState extends State<LoginView> {
 
             });
 
-            LoginCubit.get(context).changeScreen(0);
-            navigateAndEnd(context, HomeView());
+
 
           }
         }
@@ -152,7 +149,8 @@ class _LoginViewState extends State<LoginView> {
                                     {
                                       LoginCubit.get(context).userLogin(
                                         email: emailController.text,
-                                        password: passwordController.text,);
+                                        password: passwordController.text,
+                                      );
 
 
 
@@ -168,7 +166,6 @@ class _LoginViewState extends State<LoginView> {
                               padding: EdgeInsets.only(top:size.height,left: size.width*.28),
                               child:myDefaultTextButton(text: 'Forget Password?',
                                   onPressed:(){
-                                print('ahaa');
                                   })
 
                           ),

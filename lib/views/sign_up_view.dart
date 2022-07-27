@@ -5,10 +5,9 @@ import 'package:hexcolor/hexcolor.dart';
 import '../shared/component/component.dart';
 import '../shared/constants/constants.dart';
 import '../shared/network/local/cache_helper.dart';
-import '../view_models/register_cubit/registerCubit.dart';
-import '../view_models/register_cubit/registerStates.dart';
+import '../view_models/register_cubit/register_cubit.dart';
+import '../view_models/register_cubit/register_states.dart';
 import 'home_view.dart';
-
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
 
@@ -38,7 +37,7 @@ class _SignUpViewState extends State<SignUpView> {
         if (state is RegisterSuccessState) {
           if (state.loginModel.accessToken != null) {
             CacheHelper.saveData(
-                    key: 'email', value: state.loginModel.accessToken)
+                    key: 'accessToken', value: state.loginModel.accessToken)
                 .then((value) {
               token = state.loginModel.accessToken!;
             });
@@ -108,7 +107,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 padding:
                                     EdgeInsets.only(top: size.height * .08),
                                 child: Text(
-                                  'Sign up',
+                                  'Login',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 40,
@@ -292,37 +291,6 @@ class _SignUpViewState extends State<SignUpView> {
                             ),
                           ),
 
-
-
-
-                        /*  Center(
-                            child: Padding(
-                              padding: EdgeInsets.only(top: size.height * .898,left: size.width * .29),
-                              child: Container(
-
-                                child: DropdownButton<String>(
-                                  value: dropdownValue,
-                                  elevation: 16,
-                                  style: const TextStyle(color: Colors.deepPurple),
-                                  onChanged: (String? newValue) {
-                                    setState(() {
-                                      dropdownValue = newValue!;
-                                    });
-                                  },
-                                  items: <String>['One', 'Two', 'Free', 'Four']
-                                      .map<DropdownMenuItem<String>>((String value) {
-                                    return DropdownMenuItem<String>(
-
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-
-
-                                ),
-                              ),
-                            ),
-                          ),*/
                           Center(
                             child: Padding(
                                 padding:
@@ -338,11 +306,7 @@ class _SignUpViewState extends State<SignUpView> {
                                           password: passwordController.text,
                                           phoneNumber: phoneController.text,
                                           country: countryController.text);
-                                      print(index);
-
-
                                     },
-
                                     text: 'Sign up')),
                           ),
                           Center(

@@ -1,5 +1,5 @@
 class ServicesModel {
-  int? categoryId;
+  double? categoryId;
   String? imageBase64;
   String? location;
   String? phoneNumber;
@@ -13,4 +13,6 @@ class ServicesModel {
     location = json['location'];
     phoneNumber = json['phoneNumber'];
   }
+
+
 }

@@ -1,4 +1,4 @@
-class PetsModel {
+class PetsFilterModel {
   int? id;
   String? name;
   List<String>? image;
@@ -20,7 +20,7 @@ class PetsModel {
   User? user;
   String? category;
 
-  PetsModel(
+  PetsFilterModel(
       {this.id,
         this.name,
         this.image,
@@ -42,7 +42,7 @@ class PetsModel {
         this.user,
         this.category});
 
-  PetsModel.fromJson(Map<String, dynamic> json) {
+  PetsFilterModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     image = json['image'].cast<String>();
@@ -61,36 +61,10 @@ class PetsModel {
     vaccinated = json['vaccinated'];
     categoryId = json['categoryId'];
     userId = json['userId'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    user = json['user'] != null ? new User.fromJson(json['user']) : null;
     category = json['category'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['name'] = name;
-    data['image'] = image;
-    data['year'] = year;
-    data['month'] = month;
-    data['size'] = size;
-    data['breed'] = breed;
-    data['gender'] = gender;
-    data['hairLength'] = hairLength;
-    data['color'] = color;
-    data['careBehavior'] = careBehavior;
-    data['houseTrained'] = houseTrained;
-    data['description'] = description;
-    data['location'] = location;
-    data['phone'] = phone;
-    data['vaccinated'] = vaccinated;
-    data['categoryId'] = categoryId;
-    data['userId'] = userId;
-    if (user != null) {
-      data['user'] = user!.toJson();
-    }
-    data['category'] = category;
-    return data;
-  }
 }
 
 class User {
@@ -104,10 +78,4 @@ class User {
     lastName = json['lastName'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['firstName'] = firstName;
-    data['lastName'] = lastName;
-    return data;
-  }
 }

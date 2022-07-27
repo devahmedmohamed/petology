@@ -1,30 +1,25 @@
-
 const LOGIN ='/auth/login';
 
-const CREATE ='/pets';
 
-const SERVICES='pets/request';
+const FOOTER='/static/homepage/footer';
 
-const SendOTP ='users/send-otp';
+const GRIDFILTER='/static/homepage/footer';
 
-const VerifyEmail= 'users/verify-email';
-
-const PROFILE='users/profile';
 
 const REGISTER='/auth/register';
 
-const UPDATE_PROFILE='users/update-profile';
+const CREATE='/pets';
 
-const Verify_Pass='users/verify-pass-otp';
+const About='/static/homepage/second-section';
 
-const Password_Reset= 'users/password-reset';
+const SERVICES='pets/request';
 
-const parking_slots = 'parking/slots';
 
-const degrees ='home/degrees';
 
-const lights ='home/lights';
-const password='home/pass';
+
+
+
+
 
 
 

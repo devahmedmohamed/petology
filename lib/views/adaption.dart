@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 
-class AdaptionView extends StatelessWidget {
+class AdaptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,15 +35,7 @@ class DecorationStyle extends StatelessWidget {
         Container(
           height: adaptionContentSize.height * 0.7,
           width: adaptionContentSize.width,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.topLeft,
-                  colors: [
-                    HexColor('#190801'),
-                    HexColor('#432A20'),
-                  ])
-          ),
+          color: HexColor('180701'),
         ),
         Center(
           child: Column(
@@ -53,14 +45,14 @@ class DecorationStyle extends StatelessWidget {
                 height: 80,
               ),
               Stack(
-                children: const [
+                children: [
                   Image(
                     image: AssetImage("assets/images/feed.png"),
                     height: 300,
                     width: 500,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 290),
+                    padding: const EdgeInsets.only(top: 290),
                     child: Image(
                       image: AssetImage("assets/images/dish.png"),
                       height: 200,

@@ -1,11 +1,12 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-
+import 'package:petology/views/home_view.dart';
 import '../shared/component/component.dart';
-import '../view_models/request_cubit/requestViewModelCubit.dart';
-import '../view_models/request_cubit/requestViewModelState.dart';
+import '../view_models/request_cubit/request_cubit.dart';
+import '../view_models/request_cubit/request_state.dart';
 
 class RequestView extends StatefulWidget {
   @override
@@ -21,10 +22,16 @@ class _RequestViewState extends State<RequestView> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<RequestViewModelCubit, RequestViewModelState>(
-      listener: (BuildContext context, state) {},
+    return BlocConsumer<RequestCubit, RequestStates>(
+      listener: (BuildContext context, state) {
+        if (state is RequestSuccessState) {
+          RequestCubit.get(context).changeScreen(0);
+          navigateAndEnd(context, HomeView());
+        }
+      },
       builder: (BuildContext context, Object? state) {
-        var cubit = RequestViewModelCubit.get(context);
+        var model = RequestCubit.get(context);
+        var cubit = RequestCubit.get(context);
         return Padding(
           padding: EdgeInsets.only(top: size.height * .1),
           child: SingleChildScrollView(
@@ -84,7 +91,7 @@ class _RequestViewState extends State<RequestView> {
                             child: Padding(
                               padding:
                                   EdgeInsets.only(top: size.height * .00001),
-                              child: Image(
+                              child: const Image(
                                 image:
                                     AssetImage('assets/images/requestDog.png'),
                                 height: 600,
@@ -190,9 +197,9 @@ class _RequestViewState extends State<RequestView> {
                                     myDropdown(
                                         height: size.height * .1,
                                         width: size.width * .192,
-                                        dropItems: cubit.goodWith,
-                                        selectedItem: cubit.selectedGoodWith,
-                                        hintText: 'Good with'),
+                                        dropItems: cubit.breeds,
+                                        selectedItem: cubit.selectedBreed,
+                                        hintText: 'Breed'),
                                   ],
                                 )),
                           ),
@@ -209,7 +216,7 @@ class _RequestViewState extends State<RequestView> {
                                         dropItems: cubit.hairLengths,
                                         selectedItem: cubit.selectedHairLength,
                                         hintText: 'Hair Length'),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 20,
                                     ),
                                     myDropdown(
@@ -235,14 +242,14 @@ class _RequestViewState extends State<RequestView> {
                                         selectedItem:
                                             cubit.selectedHouseTrained,
                                         hintText: 'House Trained'),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 20,
                                     ),
                                     myDropdown(
                                         height: size.height * .1,
                                         width: size.width * .192,
-                                        dropItems: cubit.colors,
-                                        selectedItem: cubit.selectedColor,
+                                        dropItems: cubit.dogColor,
+                                        selectedItem: cubit.selectedDogColor,
                                         hintText: 'Color'),
                                   ],
                                 )),
@@ -369,13 +376,32 @@ class _RequestViewState extends State<RequestView> {
                                 child: myDefaultButton(
                                     height: size.height * .11,
                                     width: size.width * .4,
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      RequestCubit.get(context).dogData(
+                                        phone: phoneController.text,
+                                        description: descriptionController.text,
+                                        name: nameController.text,
+                                        category: model.selectedCategory,
+                                        breed: model.selectedBreed,
+                                        year: model.selectedYear,
+                                        size: model.selectedSize,
+                                        goodWith: model.selectedGood,
+                                        gender: model.selectedGender,
+                                        color: model.selectedDogColor,
+                                        hairLength: model.selectedHairLength,
+                                        careBehavior: model.selectedBehaviour,
+                                        location: locationController.text,
+                                        month: model.selectedMonth,
+                                        houseTrained:
+                                            model.selectedHouseTrained,
+                                      );
+                                    },
                                     text: 'Send')),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 100,
                     )
                   ],
