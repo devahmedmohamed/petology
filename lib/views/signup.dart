@@ -20,6 +20,7 @@ class _SignUpViewState extends State<SignUpView> {
   Widget build(BuildContext context) {
 
     var formKey = GlobalKey<FormState>();
+
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var firstNameController = TextEditingController();
