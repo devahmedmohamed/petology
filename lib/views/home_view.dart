@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 import '../shared/component/component.dart';
 import '../shared/constants/constants.dart';
 import '../view_models/home_cubit/HomeViewModelState.dart';
-import '../view_models/home_cubit/home_view_model.dart';
+import '../view_models/home_cubit/homeViewModel.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key? key}) : super(key: key);

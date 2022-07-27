@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../shared/constants/constants.dart';
 import '../../../views/about_us_view.dart';
 import '../../../views/adaption_view.dart';
 import '../../../views/login_view.dart';
 import '../../../views/request_view.dart';
 import '../../../views/services_view.dart';
-import '../../../views/signup.dart';
+import '../../../views/sign_up_view.dart';
+import '../../shared/constants/constants.dart';
 import 'HomeViewModelState.dart';
 
 class HomeViewModelCubit extends Cubit<HomeViewModelState> {

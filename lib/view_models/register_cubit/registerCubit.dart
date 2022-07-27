@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../shared/constants/constants.dart';
-import '../../../shared/constants/end_point.dart';
-import '../../../shared/network/remote/dio_helper.dart';
-import '../../models/login_model.dart';
-import 'states.dart';
+import 'package:petology/view_models/register_cubit/registerStates.dart';
 
+import '../../models/loginModel.dart';
+import '../../shared/constants/constants.dart';
+import '../../shared/constants/end_point.dart';
+import '../../shared/network/remote/dio_helper.dart';
 
 
 class RegisterCubit extends Cubit<RegisterStates>

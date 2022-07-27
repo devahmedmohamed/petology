@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
-import '../../../models/login_model.dart';
-import '../../../shared/constants/constants.dart';
-import '../../../shared/constants/end_point.dart';
-import '../../../shared/network/remote/dio_helper.dart';
-import 'login_states.dart';
+import '../../models/loginModel.dart';
+import '../../shared/constants/constants.dart';
+import '../../shared/constants/end_point.dart';
+import '../../shared/network/remote/dio_helper.dart';
+import 'loginStates.dart';
 
 
 class LoginCubit extends Cubit<LoginStates> {

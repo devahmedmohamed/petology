@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:petology/view_models/login_cubit/login_states.dart';
-
 import '../shared/component/component.dart';
 import '../shared/constants/constants.dart';
 import '../shared/network/local/cache_helper.dart';
-import '../view_models/login_cubit/login_cubit.dart';
+import '../view_models/login_cubit/loginCubit.dart';
+import '../view_models/login_cubit/loginStates.dart';
 import 'home_view.dart';
 
 

@@ -1,12 +1,13 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:petology/view_models/request_cubit/requestViewModelState.dart';
 
-import '../../models/send_filter_model.dart';
+import '../../models/sendFilterModel.dart';
 import '../../shared/constants/end_point.dart';
 import '../../shared/network/remote/dio_helper.dart';
+import '../services_view_model/servicesViewModelCubit.dart';
 
-part 'request_view_model_state.dart';
+
 
 class RequestViewModelCubit extends Cubit<RequestViewModelState> {
   RequestViewModelCubit() : super(RequestViewModelInitial());
@@ -15,6 +16,13 @@ class RequestViewModelCubit extends Cubit<RequestViewModelState> {
 
   List<String> categories = ['Dogs', 'Cats'];
   String selectedCategory = 'Dogs';
+
+  List<String> goodWith =  [
+    "PET FRIENDLY",
+    "KID FRIENDLY",
+    "DISABLED"
+  ];
+  String selectedGoodWith = 'Disabled';
 
   List<String> years = [
     '1',
@@ -89,7 +97,7 @@ class RequestViewModelCubit extends Cubit<RequestViewModelState> {
 
   late SendFilterModel sendFilterModel;
 
-  void dogData({
+  void postDogData({
     required String breed,
     required String age,
     required String size,
@@ -122,4 +130,14 @@ class RequestViewModelCubit extends Cubit<RequestViewModelState> {
       emit(RequestErrorState(error.toString()));
     });
   }
+
+
+  bool checkValue=false;
+void changeCheckBoxValue(){
+
+  checkValue=!checkValue;
+  emit(CheckBoxChangeState());
+
+}
+
 }

@@ -1,6 +1,4 @@
-part of 'request_view_model_cubit.dart';
-
-@immutable
+import 'package:petology/models/sendFilterModel.dart';
 
 abstract class RequestViewModelState{}
 
@@ -18,3 +16,5 @@ class RequestErrorState extends RequestViewModelState{
 
   RequestErrorState(this.error);
 }
+
+class CheckBoxChangeState extends RequestViewModelState{}

@@ -1,10 +1,11 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:petology/view_models/request_cubit/request_view_model_cubit.dart';
+
 import '../shared/component/component.dart';
+import '../view_models/request_cubit/requestViewModelCubit.dart';
+import '../view_models/request_cubit/requestViewModelState.dart';
 
 class RequestView extends StatefulWidget {
   @override
@@ -19,13 +20,11 @@ class _RequestViewState extends State<RequestView> {
 
   @override
   Widget build(BuildContext context) {
-
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<RequestViewModelCubit,RequestViewModelState>(
-      listener: (BuildContext context, state) {  },
-      builder: (BuildContext context, Object? state)
-      {
-        var cubit=RequestViewModelCubit.get(context);
+    return BlocConsumer<RequestViewModelCubit, RequestViewModelState>(
+      listener: (BuildContext context, state) {},
+      builder: (BuildContext context, Object? state) {
+        var cubit = RequestViewModelCubit.get(context);
         return Padding(
           padding: EdgeInsets.only(top: size.height * .1),
           child: SingleChildScrollView(
@@ -71,7 +70,8 @@ class _RequestViewState extends State<RequestView> {
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height * .08),
+                                padding:
+                                    EdgeInsets.only(top: size.height * .08),
                                 child: Text(
                                   'Request',
                                   style: TextStyle(
@@ -82,9 +82,11 @@ class _RequestViewState extends State<RequestView> {
                           ),
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.only(top: size.height * .00001),
+                              padding:
+                                  EdgeInsets.only(top: size.height * .00001),
                               child: Image(
-                                image: AssetImage('assets/images/requestDog.png'),
+                                image:
+                                    AssetImage('assets/images/requestDog.png'),
                                 height: 600,
                                 width: 600,
                               ),
@@ -112,166 +114,157 @@ class _RequestViewState extends State<RequestView> {
                             child: Padding(
                               padding: EdgeInsets.only(top: size.height * .84),
                               child: myDropdown(
-                                  height:  size.height * .1,
-                                  width:  size.width * .4,
+                                  height: size.height * .1,
+                                  width: size.width * .4,
                                   dropItems: cubit.categories,
                                   selectedItem: cubit.selectedCategory,
-                                  hintText: 'Category'
-                              ),
+                                  hintText: 'Category'),
                             ),
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height * .98),
-                                child:Row(
+                                padding:
+                                    EdgeInsets.only(top: size.height * .98),
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children:
-                                  [
+                                  children: [
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
-                                        dropItems:  cubit.years,
-                                        selectedItem:  cubit.selectedYear,
-                                        hintText: 'Year'
+                                        height: size.height * .1,
+                                        width: size.width * .192,
+                                        dropItems: cubit.years,
+                                        selectedItem: cubit.selectedYear,
+                                        hintText: 'Year'),
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                    SizedBox(width: 20,),
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.months,
                                         selectedItem: cubit.selectedMonth,
-                                        hintText: 'Months'
-                                    ),
-
+                                        hintText: 'Months'),
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *1.1),
-                                child:Row(
+                                padding:
+                                    EdgeInsets.only(top: size.height * 1.1),
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children:
-                                  [
+                                  children: [
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.sizes,
                                         selectedItem: cubit.selectedSize,
-                                        hintText: 'Size'
+                                        hintText: 'Size'),
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                    SizedBox(width: 20,),
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.breeds,
-                                        selectedItem:cubit.selectedBreed,
-                                        hintText: 'Breed'
-                                    ),
-
+                                        selectedItem: cubit.selectedBreed,
+                                        hintText: 'Breed'),
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *1.22),
-                                child:Row(
+                                padding:
+                                    EdgeInsets.only(top: size.height * 1.22),
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children:
-                                  [
+                                  children: [
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.genders,
-                                        selectedItem:cubit.selectedGender,
-                                        hintText: 'Gender'
+                                        selectedItem: cubit.selectedGender,
+                                        hintText: 'Gender'),
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                    SizedBox(width: 20,),
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
-                                        dropItems: cubit.breeds,
-                                        selectedItem:cubit.selectedBreed,
-                                        hintText: 'Breed'
-                                    ),
-
+                                        height: size.height * .1,
+                                        width: size.width * .192,
+                                        dropItems: cubit.goodWith,
+                                        selectedItem: cubit.selectedGoodWith,
+                                        hintText: 'Good with'),
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *1.34),
-                                child:Row(
+                                padding:
+                                    EdgeInsets.only(top: size.height * 1.34),
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children:
-                                  [
+                                  children: [
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.hairLengths,
-                                        selectedItem:cubit.selectedHairLength,
-                                        hintText: 'Hair Length'
+                                        selectedItem: cubit.selectedHairLength,
+                                        hintText: 'Hair Length'),
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                    SizedBox(width: 20,),
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.behaviours,
-                                        selectedItem:cubit.selectedBehaviour,
-                                        hintText: 'Care & behavior'
-                                    ),
-
+                                        selectedItem: cubit.selectedBehaviour,
+                                        hintText: 'Care & behavior'),
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *1.46),
-                                child:Row(
+                                padding:
+                                    EdgeInsets.only(top: size.height * 1.46),
+                                child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children:
-                                  [
+                                  children: [
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.houseTrained,
-                                        selectedItem: cubit.selectedHouseTrained,
-                                        hintText: 'House Trained'
+                                        selectedItem:
+                                            cubit.selectedHouseTrained,
+                                        hintText: 'House Trained'),
+                                    SizedBox(
+                                      width: 20,
                                     ),
-                                    SizedBox(width: 20,),
                                     myDropdown(
-                                        height:  size.height * .1,
-                                        width:  size.width * .192,
+                                        height: size.height * .1,
+                                        width: size.width * .192,
                                         dropItems: cubit.colors,
                                         selectedItem: cubit.selectedColor,
-                                        hintText: 'Color'
-                                    ),
-
+                                        hintText: 'Color'),
                                   ],
-                                )
-                            ),
+                                )),
                           ),
                           // Detect your current location
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *1.6,right: size.width*.22),
-                                child:Text(
+                                padding: EdgeInsets.only(
+                                    top: size.height * 1.6,
+                                    right: size.width * .22),
+                                child: Text(
                                   'Detect your current location',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20,
                                       color: Colors.brown[800]),
-                                )
-                            ),
+                                )),
                           ),
                           //Location
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.only(top: size.height *1.66),
+                              padding: EdgeInsets.only(top: size.height * 1.66),
                               child: defaultFormField(
                                 suffix: Icons.location_on,
                                 textColor: HexColor('#A69994'),
@@ -291,7 +284,7 @@ class _RequestViewState extends State<RequestView> {
                           //phone
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.only(top: size.height *1.78),
+                              padding: EdgeInsets.only(top: size.height * 1.78),
                               child: defaultFormField(
                                 textColor: HexColor('#A69994'),
                                 label: 'Phone Number',
@@ -310,7 +303,7 @@ class _RequestViewState extends State<RequestView> {
                           //Description
                           Center(
                             child: Padding(
-                              padding: EdgeInsets.only(top: size.height *1.9),
+                              padding: EdgeInsets.only(top: size.height * 1.9),
                               child: defaultFormField(
                                 textColor: HexColor('#A69994'),
                                 label: 'Description',
@@ -329,33 +322,62 @@ class _RequestViewState extends State<RequestView> {
                           //text vaccinated (up to date)
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top: size.height *2.25,right: size.width*.25),
-                                child:Text(
-                                  'vaccinated (up to date)',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      color: Colors.brown[800]),
-                                )
-                            ),
+                                padding: EdgeInsets.only(
+                                    top: size.height * 2.25,
+                                    right: size.width * .21),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'vaccinated (up to date)',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          color: Colors.brown[800]),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Transform.scale(
+                                      scale: 1.3,
+                                      child: Checkbox(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          fillColor: MaterialStateProperty
+                                              .resolveWith<Color>((states) {
+                                            if (states.contains(
+                                                MaterialState.disabled)) {
+                                              return Colors.brown;
+                                            }
+                                            return Colors.brown;
+                                          }),
+                                          checkColor: HexColor('#FFE3C5'),
+                                          value: cubit.checkValue,
+                                          onChanged: (value) {
+                                            cubit.changeCheckBoxValue();
+                                          }),
+                                    )
+                                  ],
+                                )),
                           ),
                           //Send Button
                           Center(
                             child: Padding(
-                                padding: EdgeInsets.only(top:size.height*2.38),
+                                padding:
+                                    EdgeInsets.only(top: size.height * 2.38),
                                 child: myDefaultButton(
-                                    height: size.height*.11,
-                                    width: size.width*.4,
-                                    onPressed: (){},
-                                    text: 'Send'
-                                )
-                            ),
+                                    height: size.height * .11,
+                                    width: size.width * .4,
+                                    onPressed: () {},
+                                    text: 'Send')),
                           ),
-
                         ],
                       ),
                     ),
-                    SizedBox(height: 100,)
+                    SizedBox(
+                      height: 100,
+                    )
                   ],
                 ),
               ],

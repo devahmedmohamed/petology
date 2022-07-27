@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:petology/views/home_view.dart';
+
 import '../shared/component/component.dart';
 import '../shared/constants/constants.dart';
 import '../shared/network/local/cache_helper.dart';
 import '../view_models/register_cubit/registerCubit.dart';
 import '../view_models/register_cubit/registerStates.dart';
+import 'home_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
-
 
   @override
   State<SignUpView> createState() => _SignUpViewState();
@@ -21,7 +21,6 @@ class _SignUpViewState extends State<SignUpView> {
   Widget build(BuildContext context) {
 
     var formKey = GlobalKey<FormState>();
-
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var firstNameController = TextEditingController();

@@ -1,5 +1,5 @@
 
-import 'package:petology/models/login_model.dart';
+import '../../models/loginModel.dart';
 
 abstract class RegisterStates{}
 

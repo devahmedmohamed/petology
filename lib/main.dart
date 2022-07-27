@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:petology/shared/constants/constants.dart';
 import 'package:petology/shared/network/local/cache_helper.dart';
-import 'package:petology/view_models/home_cubit/home_view_model.dart';
-import 'package:petology/view_models/login_cubit/login_cubit.dart';
-import 'package:petology/view_models/register_cubit/cubit.dart';
-import 'package:petology/view_models/request_cubit/request_view_model_cubit.dart';
+import 'package:petology/shared/network/remote/dio_helper.dart';
+import 'package:petology/view_models/home_cubit/homeViewModel.dart';
+import 'package:petology/view_models/login_cubit/loginCubit.dart';
+import 'package:petology/view_models/register_cubit/registerCubit.dart';
+import 'package:petology/view_models/request_cubit/requestViewModelCubit.dart';
+import 'package:petology/view_models/services_view_model/servicesViewModelCubit.dart';
 import 'package:petology/views/home_view.dart';
-
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:desktop_window/desktop_window.dart';
-
-import 'shared/network/remote/dio_helper.dart';
 
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
    DioHelper.init();
    await CacheHelper.init();
-  if(Platform.isWindows)
-    await DesktopWindow.setMinWindowSize(Size(1300.0,1200.0));
 
+
+  
+
+  // ignore: prefer_const_constructors
   runApp(MyApp());
 }
 
@@ -37,12 +37,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context)=>LoginCubit()),
         BlocProvider(create: (context)=>RegisterCubit()..changeScreen(index)),
         BlocProvider(create: (context)=>RequestViewModelCubit()),
+        BlocProvider(create: (context)=>ServicesViewModelCubit()),
+
 
 
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Petology',
         home: ScreenTypeLayout(
             mobile: HomeView(),
           desktop:Builder(
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
             },
 
           ) ,
-          breakpoints: ScreenBreakpoints(desktop:700,tablet: 400,watch: 100),
+          breakpoints: const ScreenBreakpoints(desktop:700,tablet: 400,watch: 100),
 
         ),
       ),
