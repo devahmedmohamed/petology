@@ -11,6 +11,7 @@ import '../view_models/register_cubit/states.dart';
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
 
+
   @override
   State<SignUpView> createState() => _SignUpViewState();
 }
